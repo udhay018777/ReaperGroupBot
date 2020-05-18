@@ -120,7 +120,7 @@ def new_member(bot: Bot, update: Update, job_queue: JobQueue):
 
             # Welcome yourself
             elif new_mem.id == bot.id:
-                update.effective_message.reply_text("Thanks for adding me to your group.😎\nIf you find any errors report at [Support Chat](https://t.me/ReaperBot_offical)
+                update.effective_message.reply_text("Thanks for adding me to your group.😎\nIf you find any errors report at [Support Chat](https://t.me/ReaperBot_offical)")
 
             else:
                 # If welcome message is media, send with appropriate function
