@@ -28,7 +28,7 @@ from tg_bot.modules.helper_funcs.misc import paginate_modules
 PM_START_TEXT = """
 
 
-Hello    {}, My Name Is {} !
+Hello {}, My Name Is {} !
 
 I Am A Group Manager Bot Maintained By [This Person](https://t.me/grimreapeer).
 
@@ -151,7 +151,7 @@ def start(bot: Bot, update: Update, args: List[str]):
 
 
     else:
-        update.effective_message.reply_text("Yo, whadup?🤧")
+        update.effective_message.reply_text("I'm Busy! BSDK Do Not Disturb Me. FU*K YOU 3000!")
 
 
 def send_start(bot, update):
