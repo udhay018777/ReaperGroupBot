@@ -115,5 +115,5 @@ def whois(bot: Bot, update: Update, args: List[str]):
     except IndexError:
         update.effective_message.reply_text(text, parse_mode=ParseMode.HTML, disable_web_page_preview=True)
 
-WHOIS_HANDLER = DisableAbleCommandHandler("whois", whois, pass_args=True)
+WHOIS_HANDLER = DisableAbleCommandHandler("info", whois, pass_args=True)
 dispatcher.add_handler(WHOIS_HANDLER)
