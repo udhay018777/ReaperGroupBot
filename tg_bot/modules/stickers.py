@@ -79,7 +79,7 @@ def steal(bot: Bot, update: Update, args: List[str]):
         elif msg.reply_to_message.sticker and msg.reply_to_message.sticker.emoji:
             sticker_emoji = msg.reply_to_message.sticker.emoji
         else:
-            sticker_emoji = "🤔"
+            sticker_emoji = "☠️"
         try:
             im = Image.open(stolensticker)
             maxsize = (512, 512)
@@ -134,7 +134,7 @@ def steal(bot: Bot, update: Update, args: List[str]):
                 png_sticker = urlemoji[1] 
                 sticker_emoji = urlemoji[2]
             except IndexError:
-                sticker_emoji = "🤔"
+                sticker_emoji = "☠️"
             urllib.urlretrieve(png_sticker, stolensticker)
             im = Image.open(stolensticker)
             maxsize = (512, 512)
@@ -231,13 +231,13 @@ def makepack_internal(msg, user, png_sticker, emoji, bot, packname, packnum):
 __help__ = """
 - /stickerid: reply to a sticker to get its ID.
 - /getsticker: reply to a sticker to get the raw PNG image.
-- /steal: reply to a sticker or image to add it to your pack.
+- /kang: reply to a sticker or image to add it to your pack.
 """
 
 __mod_name__ = "Stickers"
 STICKERID_HANDLER = DisableAbleCommandHandler("stickerid", stickerid)
 GETSTICKER_HANDLER = DisableAbleCommandHandler("getsticker", getsticker)
-STEAL_HANDLER = DisableAbleCommandHandler("steal", steal, pass_args=True, admin_ok=False)
+STEAL_HANDLER = DisableAbleCommandHandler("kang", steal, pass_args=True, admin_ok=False)
 
 dispatcher.add_handler(STICKERID_HANDLER)
 dispatcher.add_handler(GETSTICKER_HANDLER)
