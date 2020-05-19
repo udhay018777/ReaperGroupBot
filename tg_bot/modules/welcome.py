@@ -100,15 +100,15 @@ def new_member(bot: Bot, update: Update, job_queue: JobQueue):
 
             # Welcome Devs
             elif new_mem.id in DEV_USERS:
-                update.effective_message.reply_text("Whoa! A member of the Heroes Association just joined!")
+                update.effective_message.reply_text("Whoa! My Dev just joined the chat. Everybody welcome him!")
 
             # Welcome Sudos
             elif new_mem.id in SUDO_USERS:
-                update.effective_message.reply_text("Huh! A Dragon disaster just joined! Stay Alert!")
+                update.effective_message.reply_text("Huh! A Sudo User just joined! Stay Alert!")
 
             # Welcome Support
             elif new_mem.id in SUPPORT_USERS:
-                update.effective_message.reply_text("Huh! Someone with a Demon disaster level just joined!")
+                update.effective_message.reply_text("Huh! A support user just joined!")
 
             # Welcome Whitelisted
             elif new_mem.id in TIGER_USERS:
@@ -120,7 +120,7 @@ def new_member(bot: Bot, update: Update, job_queue: JobQueue):
 
             # Welcome yourself
             elif new_mem.id == bot.id:
-                update.effective_message.reply_text("Thanks for adding me to your group.\If you find any errors in me report at @ReaperBot_official")
+                update.effective_message.reply_text("Thanks for adding me to your group.\nIf you find any errors in me report at @ReaperBot_official")
 
             else:
                 # If welcome message is media, send with appropriate function
