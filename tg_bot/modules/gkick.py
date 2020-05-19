@@ -14,8 +14,6 @@ from tg_bot.modules.helper_funcs.filters import CustomFilters
 from tg_bot.modules.helper_funcs.misc import send_to_list
 from tg_bot.modules.sql.users_sql import get_all_chats
 
-from haruka.modules.translations.strings import tld
-
 
 #Gkick
 
