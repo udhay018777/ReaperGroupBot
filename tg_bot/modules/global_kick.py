@@ -33,64 +33,99 @@ GKICK_ERRORS = {
 }
 
 @run_async
+
 def gkick(bot: Bot, update: Update, args: List[str]):
+
     message = update.effective_message
+
     user_id = extract_user(message, args)
+
     try:
+
         user_chat = bot.get_chat(user_id)
+
     except BadRequest as excp:
+
         if excp.message in GKICK_ERRORS:
-            pass
-        else:
-            message.reply_text("User cannot be Globally kicked because: {}".format(excp.message))
-            return
-    except TelegramError:
+
             pass
 
-    if not user_id or int(user_id)==777000:
-        message.reply_text("You don't seem to be referring to a user.")
+        else:
+
+            message.reply_text("User cannot be Globally kicked because: {}".format(excp.message))
+
+            return
+
+    except TelegramError:
+
+            pass
+
+
+
+    if not user_id:
+
+        message.reply_text("You do not seems to be referring to a person")
+
         return
+
     if int(user_id) in SUDO_USERS or int(user_id) in SUPPORT_USERS:
+
         message.reply_text("OHHH! Someone's trying to gkick a sudo/support user! *Grabs popcorn*")
+
         return
+
     if int(user_id) == OWNER_ID:
-        message.reply_text("Wow! Someone's so noob that he want to gkick my owner! *Grabs Potato Chips*")
+
+        message.reply_text("Wow! Some's trying to gkick my owner! *Grabs Potato Chips*")
+
         return
+
         
+
     if user_id == bot.id:
-        message.reply_text("Welp, I'm not gonna to gkick myself!")
-        return    
+
+        message.reply_text("Well, I'm not gonna gkick myself!")
+
+        return
+
+
+
+    if int(user_id) in SUDO_USERS:
+
+        message.reply_text("")
+
+        return
+
+
 
     chats = get_all_chats()
-    banner = update.effective_user  # type: Optional[User]
-    send_to_list(bot, SUDO_USERS + SUPPORT_USERS,
-                 "<b>Global Kick</b>" \
-                 "\n#GKICK" \
-                 "\n<b>Status:</b> <code>Enforcing</code>" \
-                 "\n<b>Sudo Admin:</b> {}" \
-                 "\n<b>User:</b> {}" \
-                 "\n<b>ID:</b> <code>{}</code>".format(mention_html(banner.id, banner.first_name),
-                                              mention_html(user_chat.id, user_chat.first_name), 
-                                                           user_chat.id), 
-                html=True)
-    message.reply_text("Globally kicking user @{}".format(user_chat.username))
-    sql.gkick_user(user_id, user_chat.username, 1)
+
+    message.reply_text("Globally kicking person @{}".format(user_chat.username))
+
     for chat in chats:
+
         try:
-            member = bot.get_chat_member(chat.chat_id, user_id)
-            if member.can_send_messages is False:
-                bot.unban_chat_member(chat.chat_id, user_id)  # Unban_member = kick (and not ban)
-                bot.restrict_chat_member(chat.chat_id, user_id, can_send_messages = False)
-            else:
-                bot.unban_chat_member(chat.chat_id, user_id)
+
+            bot.unban_chat_member(chat.chat_id, user_id)  # Unban_member = kick (and not ban)
+
         except BadRequest as excp:
+
             if excp.message in GKICK_ERRORS:
+
                 pass
+
             else:
-                message.reply_text("User cannot be Globally kicked because: {}".format(excp.message))
+
+                message.reply_text("Person cannot be Globally kicked because: {}".format(excp.message))
+
                 return
+
         except TelegramError:
+
             pass
+
+
+             
 
 def __user_info__(user_id):
     times = sql.get_times(user_id)
