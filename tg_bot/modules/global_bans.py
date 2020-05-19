@@ -328,8 +328,8 @@ def check_and_ban(update, user_id, should_message=True):
         update.effective_chat.kick_member(user_id)
         if should_message:
             update.effective_message.reply_text("Alert: This user is globally banned.\n"
-                                                "*bans them from here*.\n"
-                                                f"Appeal chat: {SUPPORT_CHAT}")
+                                                "*Bans them from here*.\n"
+                                                f"Appeal chat: @ReaperBot_Official")
 
 
 @run_async
@@ -409,7 +409,7 @@ __help__ = f"""
 Gbans, also known as global bans, are used by the bot owners to ban spammers across all groups. This helps protect \
 you and your groups by removing spam flooders as quickly as possible. They can be disabled for your group by calling \
 /gbanstat
-Note: You can appeal gbans or ask gbans at {SUPPORT_CHAT}
+Note: You can appeal gbans or ask gbans at @ReaperBot_Official
 """
 
 GBAN_HANDLER = CommandHandler("gban", gban, pass_args=True)
