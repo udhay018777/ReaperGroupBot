@@ -660,6 +660,72 @@ def __chat_settings__(chat_id, user_id):
     return "This chat has it's welcome preference set to `{}`.\n" \
            "It's goodbye preference is `{}`.".format(welcome_pref, goodbye_pref)
 
+@run_async
+
+@user_admin
+
+def cleanservice(bot: Bot, update: Update, args: List[str]) -> str:
+
+    chat = update.effective_chat  # type: Optional[Chat]
+
+    if chat.type != chat.PRIVATE:
+
+        if len(args) >= 1:
+
+            var = args[0]
+
+            print(var)
+
+            if (var == "no" or var == "off"):
+
+                sql.set_clean_service(chat.id, False)
+
+                update.effective_message.reply_text("I'll leave service messages")
+
+            elif(var == "yes" or var == "on"):
+
+                sql.set_clean_service(chat.id, True)
+
+                update.effective_message.reply_text("I will clean service messages")
+
+            else:
+
+                update.effective_message.reply_text("Please enter yes or no!", parse_mode=ParseMode.MARKDOWN)
+
+        else:
+
+            update.effective_message.reply_text("Please enter yes or no!", parse_mode=ParseMode.MARKDOWN)
+
+    else:
+
+        update.effective_message.reply_text("Please enter yes or no in your group!", parse_mode=ParseMode.MARKDOWN)
+
+
+
+
+
+# TODO: get welcome data from group butler snap
+
+# def __import_data__(chat_id, data):
+
+#     welcome = data.get('info', {}).get('rules')
+
+#     welcome = welcome.replace('$username', '{username}')
+
+#     welcome = welcome.replace('$name', '{fullname}')
+
+#     welcome = welcome.replace('$id', '{id}')
+
+#     welcome = welcome.replace('$title', '{chatname}')
+
+#     welcome = welcome.replace('$surname', '{lastname}')
+
+#     welcome = welcome.replace('$rules', '{rules}')
+
+#     sql.set_custom_welcome(chat_id, welcome, sql.Types.TEXT)
+
+
+
 
 __help__ = """
 {}
@@ -675,6 +741,7 @@ __help__ = """
  - /resetgoodbye: reset to the default goodbye message.
  - /cleanwelcome <on/off>: On new member, try to delete the previous welcome message to avoid spamming the chat.
  - /welcomemutehelp: gives information about welcome mutes.
+ - /cleanservice <on/off> cleans all service messages
  - /welcomehelp: view more formatting information for custom welcome/goodbye messages.
 """.format(WELC_HELP_TXT)
 
@@ -691,6 +758,7 @@ CLEAN_WELCOME = CommandHandler("cleanwelcome", clean_welcome, pass_args=True, fi
 WELCOME_HELP = CommandHandler("welcomehelp", welcome_help)
 WELCOME_MUTE_HELP = CommandHandler("welcomemutehelp", welcome_mute_help)
 BUTTON_VERIFY_HANDLER = CallbackQueryHandler(user_button, pattern=r"user_join_")
+CLEAN_SERVICE_HANDLER = CommandHandler("cleanservice", cleanservice, pass_args=True, filters=Filters.group)
 
 dispatcher.add_handler(NEW_MEM_HANDLER)
 dispatcher.add_handler(LEFT_MEM_HANDLER)
@@ -705,10 +773,11 @@ dispatcher.add_handler(WELCOME_HELP)
 dispatcher.add_handler(WELCOMEMUTE_HANDLER)
 dispatcher.add_handler(BUTTON_VERIFY_HANDLER)
 dispatcher.add_handler(WELCOME_MUTE_HELP)
+dispatcher.add_handler(CLEAN_SERVICE_HANDLER)
 
 __mod_name__ = "Welcomes/Goodbyes"
 __command_list__ = ["welcome", "goodbye", "setwelcome", "setgoodbye", "resetwelcome", "resetgoodbye",
-                    "welcomemute", "cleanwelcome", "welcomehelp", "welcomemutehelp"]
+                    "welcomemute", "cleanwelcome", "welcomehelp", "welcomemutehelp" , "cleanservice"]
 __handlers__ = [NEW_MEM_HANDLER, LEFT_MEM_HANDLER, WELC_PREF_HANDLER, GOODBYE_PREF_HANDLER,
                 SET_WELCOME, SET_GOODBYE, RESET_WELCOME, RESET_GOODBYE, CLEAN_WELCOME,
-                WELCOME_HELP, WELCOMEMUTE_HANDLER, BUTTON_VERIFY_HANDLER, WELCOME_MUTE_HELP]
+                WELCOME_HELP, WELCOMEMUTE_HANDLER, BUTTON_VERIFY_HANDLER, WELCOME_MUTE_HELP, CLEAN_SERVICE_HANDLER]
