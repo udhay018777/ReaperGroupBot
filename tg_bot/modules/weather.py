@@ -67,7 +67,6 @@ def cuaca(update, context):
         return
 
 @run_async
-@spamcheck
 def accuweather(update, context):
     chat_id = update.effective_chat.id
     message = update.effective_message
