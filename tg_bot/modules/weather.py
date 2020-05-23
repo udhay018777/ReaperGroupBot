@@ -6,13 +6,12 @@ from pyowm import timeutils, exceptions
 from telegram import Message, Chat, Update, Bot, InlineKeyboardButton, InlineKeyboardMarkup
 from telegram.ext import run_async
 
-from tg_bot import dispatcher, updater, API_WEATHER, API_ACCUWEATHER, spamcheck
+from tg_bot import dispatcher, updater, API_WEATHER, API_ACCUWEATHER
 from tg_bot.modules.disable import DisableAbleCommandHandler
 
 from tg_bot.modules.helper_funcs.alternate import send_message
 
 @run_async
-@spamcheck
 def cuaca(update, context):
     args = context.args
     location = " ".join(args)
