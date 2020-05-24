@@ -66,12 +66,7 @@ def paginate_modules(page_n: int, module_dict: Dict, prefix, chat=None) -> List:
     modulo_page = page_n % max_num_pages
 
    
-    else:
-        pairs += [[EqInlineKeyboardButton("Home", callback_data="bot_start")]]
 
-
-
-    return pairs
 
 
 def send_to_list(bot: Bot, send_to: list, message: str, markdown=False, html=False) -> None:
