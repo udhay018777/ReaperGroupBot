@@ -56,12 +56,6 @@ def design(bot: Bot, update: Update, args: List[str]):
 
 
 
-__help__ = """
-
- - /weebify <text>: returns a weebified text
-
- """
-
 
 
 DESIGN_HANDLER = DisableAbleCommandHandler("design", design, pass_args=True)
@@ -70,10 +64,5 @@ DESIGN_HANDLER = DisableAbleCommandHandler("design", design, pass_args=True)
 
 dispatcher.add_handler(DESIGN_HANDLER)
 
-
-
-__mod_name__ = "Weebify"
-
-__command_list__ = ["weebify"]
 
 __handlers__ = [DESIGN_HANDLER]
