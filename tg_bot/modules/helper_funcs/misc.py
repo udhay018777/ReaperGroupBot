@@ -65,7 +65,27 @@ def paginate_modules(page_n: int, module_dict: Dict, prefix, chat=None) -> List:
     max_num_pages = ceil(len(pairs) / 21)
     modulo_page = page_n % max_num_pages
 
-   
+    # can only have a certain amount of buttons side by side
+
+  pairs = pairs[modulo_page * 21:21 * (modulo_page + 1)]
+    if len(pairs) > 7:
+
+        pairs = pairs[modulo_page * 21:21 * (modulo_page + 1)] + [
+
+            (EqInlineKeyboardButton("Support Group", callback_data="https://t.me/reaperbot_official/"),
+
+
+    else:
+
+        pairs += [[EqInlineKeyboardButton("Home", callback_data="bot_start")]]
+
+
+
+
+
+
+
+    return pairs
 
 
 
