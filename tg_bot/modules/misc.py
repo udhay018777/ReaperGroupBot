@@ -445,6 +445,8 @@ __help__ = """
 
  - /zal <Your Text> Returns zalgofied text
  
+ - /design <Your Text> Returns designer text
+ 
  - /imdb <movie or TV series name>: View IMDb results for selected movie or TV series
 """
 
