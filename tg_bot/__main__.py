@@ -36,7 +36,7 @@ I am a group management bot With Some Special Features.
 To add me to your group click ["HERE"](t.me/thereapeer_bot?startgroup=botstart)
 You can find my list of available commands with /help.
 
-(Repo sourced from @saitamarobot [Github Link](https://github.com/AnimeKaizoku/SaitamaRobot))
+[Deploy Code](https://github.com/udhay018777/phentomreaperbot/) 
 
 If you find any issues report at [Support Chat](https://t.me/reaperbot_official)
 
