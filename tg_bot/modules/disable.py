@@ -75,7 +75,7 @@ if is_module_loaded(FILENAME):
                 else:
                     return True
 
-     class DisableAbleRegexHandler(RegexHandler):
+    class DisableAbleRegexHandler(RegexHandler):
         def __init__(self, pattern, callback, friendly="", **kwargs):
             super().__init__(pattern, callback, **kwargs)
             DISABLE_OTHER.append(friendly or pattern)
