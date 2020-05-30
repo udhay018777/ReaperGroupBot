@@ -75,22 +75,19 @@ if is_module_loaded(FILENAME):
                 else:
                     return True
 
-
-    class DisableAbleRegexHandler(RegexHandler):
-        def __init__(self, pattern, callback, friendly="", filters=None, **kwargs):
-            super().__init__(pattern, callback, filters, **kwargs)
-            DISABLE_OTHER.append(friendly)
-            self.friendly = friendly
+     class DisableAbleRegexHandler(RegexHandler):
+        def __init__(self, pattern, callback, friendly="", **kwargs):
+            super().__init__(pattern, callback, **kwargs)
+            DISABLE_OTHER.append(friendly or pattern)
+            self.friendly = friendly or pattern
 
         def check_update(self, update):
             chat = update.effective_chat
-            if super().check_update(update):
-                if sql.is_command_disabled(chat.id, self.friendly):
-                    return False
-                else:
-                    return True
-
-
+            return super().check_update(update) and not sql.is_command_disabled(chat.id, self.friendly)
+           
+                
+                
+                
     @run_async
     @connection_status
     @user_admin
@@ -278,6 +275,7 @@ if is_module_loaded(FILENAME):
     ENABLE_MODULE_HANDLER = CommandHandler("enablemodule", enable_module, pass_args=True)
     COMMANDS_HANDLER = CommandHandler(["cmds", "disabled"], commands)
     TOGGLE_HANDLER = CommandHandler("listcmds", list_cmds)
+    
 
     dispatcher.add_handler(DISABLE_HANDLER)
     dispatcher.add_handler(DISABLE_MODULE_HANDLER)
