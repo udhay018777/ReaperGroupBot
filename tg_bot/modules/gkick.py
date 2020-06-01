@@ -54,10 +54,7 @@ def gkick(bot: Bot, update: Update, args: List[str]):
     if int(user_id) in SUDO_USERS or int(user_id) in SUPPORT_USERS:
         message.reply_text("OHHH! Someone's trying to gkick a sudo/support user! *Grabs popcorn*")
         return
-    if int(user_id) == OWNER_ID:
-        message.reply_text("Wow! Some's trying to gkick my owner! *Grabs Potato Chips*")
-        return
-        
+    
     if user_id == bot.id:
         message.reply_text("Well, I'm not gonna gkick myself!")
         return
