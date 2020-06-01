@@ -36,10 +36,6 @@ def gmute(bot: Bot, update: Update, args: List[str]):
         message.reply_text("OOOH someone's trying to gmute a support user! *grabs popcorn*")
         return
     
-    if int(user_id) in OWNER_ID:
-        message.reply_text("Tera baap hai wo, Madarchod")
-        return
-
     if user_id == bot.id:
         message.reply_text("-_- So funny, lets gmute myself why don't I? Nice try.")
         return
