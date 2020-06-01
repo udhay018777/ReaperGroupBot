@@ -427,6 +427,8 @@ __help__ = """
  - /getchats Get all your common chats with bot
  
  - /info: get information about a user.
+ 
+ - /reverse: Does a reverse image search of the media which it was replied to.
 
  - /markdownhelp: quick summary of how markdown works in telegram - can only be called in private chats.
 
