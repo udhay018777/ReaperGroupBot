@@ -2,26 +2,26 @@ import html, time
 import re
 from typing import Optional, List
 
-import lucifer.modules.helper_funcs.cas_api as cas
+import tg_bot.modules.helper_funcs.cas_api as cas
 
 from telegram import Message, Chat, Update, Bot, User, CallbackQuery, ChatMember, ParseMode, InlineKeyboardMarkup, InlineKeyboardButton, MessageEntity
 from telegram.error import BadRequest
 from telegram.ext import MessageHandler, Filters, CommandHandler, run_async, CallbackQueryHandler
 from telegram.utils.helpers import mention_markdown, mention_html, escape_markdown
 
-import lucifer.modules.sql.welcome_sql as sql
-import lucifer.modules.sql.antispam_sql as gbansql
-import lucifer.modules.sql.users_sql as userssql
+import tg_bot.modules.sql.welcome_sql as sql
+import tg_bot.modules.sql.antispam_sql as gbansql
+import tg_bot.modules.sql.users_sql as userssql
 
-from lucifer import dispatcher, OWNER_ID, LOGGER, SUDO_USERS, SUPPORT_USERS
-from lucifer.modules.helper_funcs.chat_status import user_admin, can_delete, is_user_ban_protected
-from lucifer.modules.helper_funcs.misc import build_keyboard, revert_buttons, send_to_list
-from lucifer.modules.helper_funcs.msg_types import get_welcome_type
-from lucifer.modules.helper_funcs.extraction import extract_user
-from lucifer.modules.disable import DisableAbleCommandHandler
-from lucifer.modules.helper_funcs.filters import CustomFilters
-from lucifer.modules.helper_funcs.string_handling import markdown_parser, escape_invalid_curly_brackets
-from lucifer.modules.log_channel import loggable
+from tg_bot mport dispatcher, OWNER_ID, LOGGER, SUDO_USERS, SUPPORT_USERS
+from tg_bot.modules.helper_funcs.chat_status import user_admin, can_delete, is_user_ban_protected
+from tg_bot.modules.helper_funcs.misc import build_keyboard, revert_buttons, send_to_list
+from tg_bot.modules.helper_funcs.msg_types import get_welcome_type
+from tg_bot.modules.helper_funcs.extraction import extract_user
+from tg_bot.modules.disable import DisableAbleCommandHandler
+from tg_bot.modules.helper_funcs.filters import CustomFilters
+from tg_bot.modules.helper_funcs.string_handling import markdown_parser, escape_invalid_curly_brackets
+from tg_bot.modules.log_channel import loggable
 
 VALID_WELCOME_FORMATTERS = ['first', 'last', 'fullname', 'username', 'id', 'count', 'chatname', 'mention']
 
