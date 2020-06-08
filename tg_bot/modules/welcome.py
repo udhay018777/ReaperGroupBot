@@ -13,7 +13,7 @@ import tg_bot.modules.sql.welcome_sql as sql
 import tg_bot.modules.sql.antispam_sql as gbansql
 import tg_bot.modules.sql.users_sql as userssql
 
-from tg_bot mport dispatcher, OWNER_ID, LOGGER, SUDO_USERS, SUPPORT_USERS
+from tg_bot import dispatcher, OWNER_ID, LOGGER, SUDO_USERS, SUPPORT_USERS
 from tg_bot.modules.helper_funcs.chat_status import user_admin, can_delete, is_user_ban_protected
 from tg_bot.modules.helper_funcs.misc import build_keyboard, revert_buttons, send_to_list
 from tg_bot.modules.helper_funcs.msg_types import get_welcome_type
