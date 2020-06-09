@@ -59,9 +59,6 @@ def gkick(bot: Bot, update: Update, args: List[str]):
         message.reply_text("Well, I'm not gonna gkick myself!")
         return
     
-    if int(user_id) in OWNER_ID:
-        message.reply_text("Tera baap hai wo, Madarchod")
-        return
 
     if int(user_id) in SUDO_USERS:
         message.reply_text("")
