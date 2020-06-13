@@ -1,4 +1,4 @@
-Can be found on telegram as [ReaperBot](https//:t.me/thereapeer_bot)
+Can be found on telegram as [ReaperBot](https://t.me/TheReapeer_Bot) 
 
 This repo is a fork of AnimeKaizoku/SaitamaRobot developed by Sawada. 
 
