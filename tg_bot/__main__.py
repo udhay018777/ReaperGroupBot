@@ -32,27 +32,24 @@ Hello {}, My Name Is {} !
 
 I Am A Group Manager Bot Maintained By [This Person](https://t.me/grimreapeer).
 
-I am a group management bot With Some Special Features.
 To add me to your group click ["HERE"](t.me/thereapeer_bot?startgroup=botstart)
 You can find my list of available commands with /help.
 
+Here is my [Deploy Code](https://github.com/udhay018777/ReaperGroupBot/)
 
 If you find any issues report at [Support Chat](https://t.me/reaperbot_official)
 
 """
-
 HELP_STRINGS = """
 
 Hello! my name *{}*.
 
 *Main* commands available:
- - /start: start the bot
+ - /start: Start the bot
  - /help: PM's you this message.
- - /help <module name>: PM's you info about that module.
  - /settings:
    - in PM: will send you your settings for all supported modules.
    - in a group: will redirect you to pm, with all that chat's settings.
-
 
 {}
 And the following:
