@@ -30,9 +30,9 @@ PM_START_TEXT = """
 
 Hello {}, My Name Is {} !
 
-I Am A Group Manager Bot Maintained By [This Person](https://t.me/killthewill).
+I Am A Group Manager Bot Maintained By [This Person](https://t.me/GrimReapeer).
 
-To add me to your group click ["HERE"](t.me/thecena_bot?startgroup=botstart)
+To add me to your group click ["HERE"](t.me/thereapeer_bot?startgroup=botstart)
 You can find my list of available commands with /help.
 
 Here is my [Deploy Code](https://github.com/udhay018777/ReaperGroupBot/)
